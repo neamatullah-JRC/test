@@ -40,7 +40,7 @@ if (QA.available() > 0) {
 
   Serial.println(data);
   Serial.println(runstate);
-
+if(loopcycle == 1){
   if(runstate == 1 && data == 8){
 
     car.forward();
@@ -49,22 +49,19 @@ if (QA.available() > 0) {
 
     tmrpcm.play("maingate.wav"); 
     while (tmrpcm.isPlaying()) {}
-
     delay(5000);
-    runstate = 2;
+    runstate  = 2;
     data = 0;
-    
     
   }
     if(runstate == 2 && data == 8){
     car.forward();
-    delay(2000);
+    delay(3000);
     
         car.stop();
 
     tmrpcm.play("admin.wav"); 
     while (tmrpcm.isPlaying()) {}
-
     delay(5000);
         runstate = 3;
         data = 0;
@@ -77,12 +74,9 @@ if (QA.available() > 0) {
 
     tmrpcm.play("hadi.wav"); 
     while (tmrpcm.isPlaying()) {}
-
     delay(5000);
       
     turnhadi();
-            car.stop();
-
         runstate = 4;
         data = 0;
 
@@ -95,7 +89,6 @@ if (QA.available() > 0) {
 
     tmrpcm.play("cafe.wav"); 
     while (tmrpcm.isPlaying()) {}
-
     delay(5000);
         runstate = 5;
         data = 0;
@@ -112,43 +105,9 @@ if (QA.available() > 0) {
             data = 0;
 
       }
-
-    if(data == 1)
-    {
-          tmrpcm.play("Q1ans.wav"); 
-              while (tmrpcm.isPlaying()) {}
-
-    }
-
-     if(data == 2)
-    {
-          tmrpcm.play("Q2ans.wav"); 
-              while (tmrpcm.isPlaying()) {}
-
-
-    }
-
-         if(data == 4)
-    {
-          tmrpcm.play("Q3ans.wav"); 
-              while (tmrpcm.isPlaying()) {}
-
-
-    }
-
-         if(data == 3)
-    {
-          tmrpcm.play("Q4ans.wav"); 
-              while (tmrpcm.isPlaying()) {}
-
-
-    }
-
-    
-
-
-    data = 0;
-
+//loopcycle = !loopcycle;
+data = 0;
+}
 
 }
 
@@ -168,7 +127,6 @@ void turnhadi()
 
       car.left();
       delay(500);
-        car.stop();
 
 
   
